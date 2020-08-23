@@ -1,10 +1,12 @@
 var startBtn = document.getElementById('start');
+var scoreBtn = document.getElementById('high-score')
 var timerEl = document.getElementById('timer');
 var score = 0;
 var quizDivEL= document.querySelector("#quiz")
 var ulItemEL = document.createElement("ul");
 var questionIndex = 0;
 var timeLeft = 75;
+
 
 
 var questions = [{
@@ -83,7 +85,7 @@ function correct (click){
      
  }
  else {
-     timeLeft = timeLeft - 5;
+     timeLeft = timeLeft - 10;
      window.alert("Sorry, that is incorrect.")
      
  }
@@ -139,12 +141,24 @@ function endGame(){
             score: timeLeft
         }
         console.log(score);
+        if (score > localStorage.getItem ("score") ){
+            saveScore();
+                }
 
     });
 
 }
+var saveScore = function(){
+    
+    localStorage.setItem("score", JSON.stringify(score));
+}
+var loadScore = function(){
+    localStorage.getItem("score", saveScore);
+}
+function highScore (){
+    window.alert("The highscore is " + loadScore )
+}
 
 
-
-
-startBtn.onclick = startQuiz;
+startBtn.addEventListener("click", startQuiz);
+scoreBtn.addEventListener("click", highScore)
