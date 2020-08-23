@@ -2,8 +2,7 @@ var startBtn = document.getElementById('start');
 var timerEl = document.getElementById('timer');
 var score = 0;
 var quizDivEL= document.querySelector("#quiz")
-var ulCreate = document.createElement("ul");
-var liCreate = document.createElement("li");
+var ulItemEL = document.createElement("ul");
 var questionIndex = 0;
 var timeLeft = 75;
 
@@ -58,21 +57,21 @@ quiz(questionIndex);
 
 function quiz(questionIndex) {
     quizDivEL.innerHTML = "";
-    ulCreate.innerHTML = "";
+    ulItemEL.innerHTML = "";
     for (var i = 0; i < questions.length; i++) {
 
         var question = questions[questionIndex].title;
         var answer = questions[questionIndex].answers;
 
-        quizDivEL.textContent = question;
+        quizDivEL.innerHTML ="<h2 class = 'question'>"+ question + "</h2>";
     }
     
-    answer.forEach(function (newItem) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newItem;
-        quizDivEL.appendChild(ulCreate);
-        ulCreate.appendChild(listItem);
-        listItem.addEventListener("click", (correct));
+    answer.forEach(function (Item) {
+        var listItemEL = document.createElement("li");
+        listItemEL.textContent = Item;
+        quizDivEL.appendChild(ulItemEL);
+        ulItemEL.appendChild(listItemEL);
+        listItemEL.addEventListener("click", (correct));
     })
 }
 function correct (click){
@@ -97,7 +96,12 @@ function correct (click){
 function endGame(){
     window.alert("The game is over")
     quizDivEL.innerHTML = "";
-    ulCreate.innerHTML = "";
+    ulItemEL.innerHTML = "";
+    var listItemEL = document.createElement("li");
+    quizDivEL.innerHTML = "<h2> Your final score was " + score + "</h2>";
+    
+    quizDivEL.appendChild(listItemEL);
+    
 
 
 

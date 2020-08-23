@@ -9,3 +9,17 @@ header{
     font-size: 10px;
 
 }
+li {
+    list-style: none;
+    font-size: 25px;
+    margin-top: 10px;
+
+}
+#quiz{
+    text-align: center;
+}
+
+.question{
+    text-align: center;
+    
+}
