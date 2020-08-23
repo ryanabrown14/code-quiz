@@ -9,10 +9,15 @@ header{
     font-size: 10px;
 
 }
-li {
+
+.hover-color{
     list-style: none;
     font-size: 25px;
     margin-top: 10px;
+    background-color: red;
+    color: white;
+    
+    
 
 }
 #quiz{
