@@ -1,0 +1,11 @@
+header{
+    padding:20px 35px;
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.highscores {
+    font-size: 10px;
+
+}
