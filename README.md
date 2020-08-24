@@ -5,6 +5,7 @@ This is an HTML and JavaScript project that contains a short timed quiz about Ja
 
 ## link to live project
 
+https://ryanabrown14.github.io/code-quiz/
 
 ## Created by
  Ryan Brown
