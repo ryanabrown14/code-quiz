@@ -136,27 +136,29 @@ function endGame(){
             window.alert("enter a name")
 
         }
-        else score = {
-            name: name,
-            score: timeLeft
-        }
-        console.log(score);
-        if (score > localStorage.getItem ("score") ){
-            saveScore();
-                }
+            
+            saveScore()
+ 
+        
+        
+            
+                
 
     });
 
 }
 var saveScore = function(){
+ 
+    if (timeLeft > localStorage.getItem("highscore")){
+    localStorage.setItem("highscore", timeLeft);
+    localStorage.setItem("highscoreName",  document.getElementById('name').value);
+    }
+
     
-    localStorage.setItem("score", JSON.stringify(score));
 }
-var loadScore = function(){
-    localStorage.getItem("score", saveScore);
-}
+
 function highScore (){
-    window.alert("The highscore is " + loadScore )
+    window.alert("The highscore is " +  localStorage.getItem("highscore"));
 }
 
 
