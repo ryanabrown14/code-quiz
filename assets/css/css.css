@@ -16,12 +16,18 @@ header{
     margin-top: 10px;
     background-color: red;
     color: white;
+    width: 45%;
+    
     
     
 
 }
+.hover-color:hover{
+    background-color: pink;
+}
 #quiz{
     text-align: center;
+
 }
 
 .question{

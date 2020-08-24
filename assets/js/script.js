@@ -31,8 +31,8 @@ var questions = [{
 },
 {
     title: "String values must be enclosed within _____ when being assigned to variables ",
-    answers: ["commas","curly brackets","quotes","parentheses"],
-    correct: "quotes"  
+    answers: ["Commas","Curly brackets","Quotes","Parentheses"],
+    correct: "Quotes"  
 }
 ]
 
@@ -49,7 +49,7 @@ function startQuiz(){
        else {
         timerEl.textContent = '';
         clearInterval(timeInterval);
-        //endGame();
+        endGame();
     }
       
     }, 1000);
@@ -72,6 +72,7 @@ function quiz(questionIndex) {
     answer.forEach(function (Item) {
         var listItemEL = document.createElement("li");
         listItemEL.className = "hover-color"
+        listItemEL.id = "hover"
         listItemEL.textContent = Item;
         quizDivEL.appendChild(ulItemEL);
         ulItemEL.appendChild(listItemEL);
@@ -93,6 +94,7 @@ function correct (click){
  if (questionIndex < questions.length) {quiz(questionIndex);}
  else (
      endGame()
+     
  )
 }
 
@@ -105,12 +107,14 @@ function endGame(){
 
 
     if (timeLeft >= 0){
+        clearInterval(timeLeft);
     var listItemEL = document.createElement("h2");
     
     quizDivEL.innerHTML = "<h2> Your final score was " + timeLeft + "</h2>";
     
     quizDivEL.appendChild(listItemEL);
     }
+
     var h3EL = document.createElement("h3");
     h3EL.setAttribute("id","h3EL");
     h3EL.textContent = "enter your initials:";
@@ -160,6 +164,11 @@ var saveScore = function(){
 function highScore (){
     window.alert("The highscore is " +  localStorage.getItem("highscore"));
 }
+
+
+
+
+
 
 
 startBtn.addEventListener("click", startQuiz);
